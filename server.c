@@ -6,7 +6,7 @@
 /*   By: adesgran <adesgran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:48:27 by adesgran          #+#    #+#             */
-/*   Updated: 2022/01/03 17:38:45 by adesgran         ###   ########.fr       */
+/*   Updated: 2022/01/03 18:45:35 by adesgran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	print_char(char *str)
 {
-	char	c;
-	int		i;
+	char		c;
+	int			i;
 
 	i = 0;
 	c = 0;
@@ -26,7 +26,7 @@ static void	print_char(char *str)
 			c += 1;
 		i++;
 	}
-	ft_printf("%c", c);
+	print_str(c);
 }
 
 static void	read_input(char c)
@@ -76,7 +76,7 @@ int	main(void)
 	ft_printf("PID : %d\n", getpid());
 	while (1)
 	{
-		sleep(5);
+		sleep(1);
 	}
 	return (0);
 }

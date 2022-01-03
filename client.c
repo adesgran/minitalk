@@ -6,7 +6,7 @@
 /*   By: adesgran <adesgran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:47:07 by adesgran          #+#    #+#             */
-/*   Updated: 2022/01/03 17:33:57 by adesgran         ###   ########.fr       */
+/*   Updated: 2022/01/03 18:15:28 by adesgran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int ac, char **av)
 		send_char(*to_send, pid);
 		to_send++;
 	}
-	send_char('\n', pid);
+	send_char('\0', pid);
 	(void)ac;
 	(void)av;
 	return (0);
