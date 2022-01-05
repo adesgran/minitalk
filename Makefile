@@ -39,7 +39,7 @@ ${NAME}: ${O_FILES} ${CLIENT} ${SERVER}
 
 clean:
 	rm -r ${O_FILES} ${O_CLIENT} ${O_SERVER}
-	make clean -C ${LIBFT}
+	make clean -C libft
 
 fclean: clean
 	rm -r ${CLIENT} ${SERVER}
