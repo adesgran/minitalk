@@ -8,7 +8,7 @@ FLAGS = -Wall -Wextra -Werror
 INCLUDES = -I libft -I .
 
 LIBS = -L libft -lft
-LIBFT = libft
+LIBFT = libft/libft.a
 LIBFT_REPO = https://github.com/adesgran/libft_extended.git
 
 C_CLIENT = client.c
@@ -26,8 +26,8 @@ O_FILES = $(C_FILES:.c=.o)
 all: ${LIBFT} ${NAME}
 
 ${LIBFT}:
-	if [ ! -d "./libft" ]; then git clone ${LIBFT_REPO} ${LIBFT}; fi
-	make -C ${LIBFT}
+	if [ ! -d "./libft" ]; then git clone ${LIBFT_REPO} libft; fi
+	make -C libft
 
 ${CLIENT}: ${O_CLIENT}
 	${CC} ${O_CLIENT} ${O_FILES} ${LIBS} -o ${CLIENT}
@@ -38,10 +38,11 @@ ${SERVER}: ${O_SERVER}
 ${NAME}: ${O_FILES} ${CLIENT} ${SERVER}
 
 clean:
-	rm -r ${CLIENT} ${SERVER}
+	rm -r ${O_FILES} ${O_CLIENT} ${O_SERVER}
 	make clean -C ${LIBFT}
 
 fclean: clean
-	make fclean -C ${LIBFT}
+	rm -r ${CLIENT} ${SERVER}
+	make fclean -C libft
 
-re: clean all
+re: fclean all
