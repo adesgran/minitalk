@@ -6,7 +6,7 @@
 /*   By: adesgran <adesgran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:48:27 by adesgran          #+#    #+#             */
-/*   Updated: 2022/01/03 18:45:35 by adesgran         ###   ########.fr       */
+/*   Updated: 2022/01/06 17:25:45 by adesgran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static void	print_char(char *str)
 			c += 1;
 		i++;
 	}
-	print_str(c);
+	printf("%c",c);
+	//print_str(c);
 }
 
 static void	read_input(char c)
@@ -70,13 +71,13 @@ static void	handle_sigusr2(int sig)
 
 int	main(void)
 {
-	signal(SIGSTOP, handle_sigstop);
+	signal(SIGSTOP, &handle_sigstop);
 	signal(SIGUSR1, handle_sigusr1);
 	signal(SIGUSR2, handle_sigusr2);
 	ft_printf("PID : %d\n", getpid());
 	while (1)
 	{
-		sleep(1);
+		usleep(1000000);
 	}
 	return (0);
 }
