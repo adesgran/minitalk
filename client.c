@@ -6,45 +6,28 @@
 /*   By: adesgran <adesgran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:47:07 by adesgran          #+#    #+#             */
-/*   Updated: 2022/01/06 16:48:34 by adesgran         ###   ########.fr       */
+/*   Updated: 2022/01/08 00:24:36 by adesgran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minitalk.h>
 
-static char	*convert_base(char c)
-{
-	int		i;
-	char	*res;
-
-	res = malloc(sizeof(char) * 8);
-	i = 8;
-	while (i)
-	{
-		if (c % 2)
-			res[i - 1] = SIGUSR2;
-		else
-			res[i - 1] = SIGUSR1;
-		c = c / 2;
-		i--;
-	}
-	return (res);
-}
-
 static void send_char(char c, pid_t pid)
 {
-	char	*str;
 	int		i;
 
-	str = convert_base(c);
-	i = 0;
-	while (i < 8)
+	i = 7;
+	while (i >= 0)
 	{
-		usleep(100);
-		kill(pid, str[i]);
-		i++;
+		usleep(1000);
+		if ((c >> i) & 1)
+			if (kill(pid, SIGUSR2) < 0)
+				ft_printf("ERROR\n");
+		if (!((c >> i) & 1))
+			if (kill(pid, SIGUSR1) < 0)
+				ft_printf("ERROR\n");
+		i--;
 	}
-	free(str);
 }
 
 int	main(int ac, char **av)
@@ -59,7 +42,6 @@ int	main(int ac, char **av)
 	to_send = av[2];
 	while (*to_send)
 	{
-		usleep(1000);
 		send_char(*to_send, pid);
 		to_send++;
 	}
