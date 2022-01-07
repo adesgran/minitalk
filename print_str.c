@@ -6,7 +6,7 @@
 /*   By: adesgran <adesgran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 17:56:10 by adesgran          #+#    #+#             */
-/*   Updated: 2022/01/06 16:20:35 by adesgran         ###   ########.fr       */
+/*   Updated: 2022/01/08 00:29:58 by adesgran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	print_str(char c)
 
 void	print_str(char c)
 {
-	static char str[9999];
-	static int i;
+	static char	str[9999];
+	static int	i;
 
 	if (!i)
 		i = 0;

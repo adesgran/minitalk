@@ -6,13 +6,13 @@
 /*   By: adesgran <adesgran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:47:07 by adesgran          #+#    #+#             */
-/*   Updated: 2022/01/08 00:24:36 by adesgran         ###   ########.fr       */
+/*   Updated: 2022/01/08 00:29:04 by adesgran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minitalk.h>
 
-static void send_char(char c, pid_t pid)
+static void	send_char(char c, pid_t pid)
 {
 	int		i;
 
