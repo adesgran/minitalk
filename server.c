@@ -6,7 +6,7 @@
 /*   By: adesgran <adesgran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:48:27 by adesgran          #+#    #+#             */
-/*   Updated: 2022/01/08 00:27:08 by adesgran         ###   ########.fr       */
+/*   Updated: 2022/01/08 00:32:52 by adesgran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static void	read_input(int sig)
 	i--;
 	if (!i)
 	{
-		printf("%c", c);
+		write(1, &c, 1);
 		if (!c)
-			printf("\n");
+			write(1, "\n", 1);
 		c = 0x00;
 	}
 }

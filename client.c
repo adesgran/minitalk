@@ -6,7 +6,7 @@
 /*   By: adesgran <adesgran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:47:07 by adesgran          #+#    #+#             */
-/*   Updated: 2022/01/08 00:29:04 by adesgran         ###   ########.fr       */
+/*   Updated: 2022/01/08 00:37:54 by adesgran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	send_char(char c, pid_t pid)
 	i = 7;
 	while (i >= 0)
 	{
-		usleep(1000);
+		usleep(2250);
 		if ((c >> i) & 1)
 			if (kill(pid, SIGUSR2) < 0)
 				ft_printf("ERROR\n");
